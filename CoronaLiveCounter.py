@@ -1,21 +1,25 @@
 import requests,bs4,time,smtplib,time,datetime
 
 countryDict = {
-  "Country": "",
-  "Total Cases": "",
-  "New Cases": "",
-  "Total Deaths": "",
-  "New Deaths": "",
-  "Total Recovered": "",
-  "Active Cases": "",
-  "Serious Critical": "",
-  "Total Cases in 1M pop": ""
-    }
+    "Country": "",
+    "Total Cases": "",
+    "New Cases": "",
+    "Total Deaths": "",
+    "New Deaths": "",
+    "Total Recovered": "",
+    "Active Cases": "",
+    "Serious Critical": "",
+    "Total Cases in 1M pop": "",
+    "Deaths in 1M pop": "",
+    "Total Tests": "",
+    "Tests in 1M pop": "",
+    "Population": ""
+}
 
 
 def CoronaWorld(country):
     #grab number,name,deaths from country
-    corona_live_count = requests.get('https://www.worldometers.info/coronavirus/#italian-media')
+    corona_live_count = requests.get('https://www.worldometers.info/coronavirus/')
     corona_live_count.raise_for_status()
 
     soup = bs4.BeautifulSoup (corona_live_count.text, 'html.parser')    
